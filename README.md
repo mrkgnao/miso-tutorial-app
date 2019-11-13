@@ -1,39 +1,25 @@
 Example SPA in Miso
 ===================
 
-![Docker Automated build](https://img.shields.io/docker/automated/ytaka23/miso-tutorial-app.svg)
-![Docker Build Status](https://img.shields.io/docker/build/ytaka23/miso-tutorial-app.svg)
-
-An example GHCJS + Miso single page application.
-
-![screenshot](screenshot.png)
-
+A Nix version of [y-taka-23/miso-tutorial-app](https://github.com/y-taka-23/miso-tutorial-app).
 
 Running the Application
 -----------------------
 
-### Docker
+Enter a Nix shell with all the dependencies required for both the backend and the frontend:
 
-The application is packed as a Docker image, so you can launch it with a single command.
-
-```console
-docker run -d -p 4000:4000 ytaka23/miso-tutorial-app:latest
+```
+$ nix-shell
 ```
 
-Access [http://localhost:4000](http://localhost:4000).
+Then use the provided build scripts to generate the frontend and then run the server:
 
-### Source
-
-You can also build the application from source code. Note that, if it's your first experience of GHCJS, it takes a long time to set up the compiler.
-
-```console
-git clone https://github.com/y-taka-23/miso-tutorial-app.git
-cd miso-tutorial-app
-./run.sh
 ```
-
-The script prepares compilation environments according to each `stack.yaml`, builds both of the client/server side stuffs and starts the web server. Access [http://localhost:4000](http://localhost:4000).
-
+$ ./build-client.sh
+$ ./run-server.sh
+...
+Listening on port 4000
+```
 
 Highlights
 ----------
