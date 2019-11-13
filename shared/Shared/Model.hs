@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Model where
+module Shared.Model where
 
 import           Data.Aeson
 import           Miso

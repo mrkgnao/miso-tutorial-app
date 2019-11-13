@@ -1,24 +1,27 @@
-dist
-dist-*
+*.aux
+**/*.cabal
 cabal-dev
-*.o
-*.hi
-*.chi
-*.chs.h
-*.dyn_o
-*.dyn_hi
-.hpc
-.hsenv
+cabal.project.local
+cabal.project.local~
 .cabal-sandbox/
 cabal.sandbox.config
-*.prof
-*.aux
-*.hp
+*.chi
+*.chs.h
+dist
+dist-*
+*.dyn_hi
+*.dyn_o
 *.eventlog
-.stack-work/
-cabal.project.local
+.ghc.environment.*
+*.hi
+*.hie
+*.hp
+.hpc
+.hsenv
 .HTF/
-**/*.cabal
+*.o
+*.prof
+.stack-work/
 
 *.jsexe
 *.js_o
@@ -26,4 +29,5 @@ cabal.project.local
 
 node_modules/
 
-server/static
+static
+

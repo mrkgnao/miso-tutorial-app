@@ -12,12 +12,12 @@ import           Network.HTTP.Types
 import           Network.Wai
 import           Servant
 
-import           Action
-import           Api
-import           Html
-import           Model
-import           Routing
-import           View
+import           Shared.Action
+import           Shared.Model
+import           Shared.Routing
+import           Shared.View
+import           Server.Api
+import           Server.Html
 
 type PlayerDB = TVar (M.Map PlayerId Player)
 
@@ -37,7 +37,7 @@ server db = handlers db :<|> ssrViews :<|> staticFiles :<|> notFoundHtml
 handlers :: PlayerDB -> Server JsonApi
 handlers db = getPlayers db :<|> putPlayerById db
 
-ssrViews :: Server IsomorphicApi
+ssrViews :: Server SsrApi
 ssrViews = topView :<|> listView :<|> editView
 
 topView :: Handler (HtmlPage (View Action))
@@ -50,10 +50,10 @@ editView :: PlayerId -> Handler (HtmlPage (View Action))
 editView i = return $ HtmlPage . viewModel . initialModel $ editLink i
 
 staticFiles :: Server Raw
-staticFiles = serveDirectory "static"
+staticFiles = serveDirectoryWebApp "./static"
 
 notFoundHtml :: Server Raw
-notFoundHtml _ respond =
+notFoundHtml = Tagged $ \_ respond ->
     respond $ responseLBS
         status404 [("Content-Type", "text/html")] $
         L.renderBS $ L.toHtml (HtmlPage notFoundPage)

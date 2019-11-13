@@ -2,10 +2,10 @@ module Main where
 
 import           Miso
 
-import           Action
-import           Model
-import           Update
-import           View
+import           Shared.Action
+import           Shared.Model
+import           Client.Update
+import           Shared.View
 
 main :: IO ()
 main = do

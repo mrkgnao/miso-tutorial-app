@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Effect where
+module Client.Effect where
 
 import qualified Codec.Binary.UTF8.String      as U
 import           Data.Aeson
@@ -7,7 +7,7 @@ import qualified Data.ByteString.Lazy          as B
 import qualified Data.JSString                 as J
 import           JavaScript.Web.XMLHttpRequest
 
-import           Model
+import           Shared.Model
 
 fetchPlayers :: IO (Either String [Player])
 fetchPlayers = do
@@ -23,7 +23,7 @@ fetchPlayers = do
             , reqData = NoData
             }
 
-savePlayer :: Player-> IO (Either String Player)
+savePlayer :: Player -> IO (Either String Player)
 savePlayer p = do
     -- Todo: handle server-side errors here
     _ <- xhrByteString req

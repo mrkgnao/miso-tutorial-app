@@ -1,11 +1,11 @@
 {-# LANGUAGE OverloadedStrings #-}
-module View where
+module Shared.View where
 
-import           Action
-import           Model
-import           Player.Edit
-import           Player.List
-import           Routing
+import           Shared.Action
+import           Shared.Model
+import           Shared.Player.Edit
+import           Shared.Player.List
+import           Shared.Routing
 
 import           Data.List
 import           Data.Proxy

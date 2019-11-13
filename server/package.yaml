@@ -24,7 +24,7 @@ dependencies:
 
 executables:
   miso-tutorial-app-server:
-    main:           Main.hs
+    main:           ServerMain.hs
     source-dirs:
     - ./
     - ../shared

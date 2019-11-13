@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Html where
+module Server.Html where
 
 import qualified Lucid      as L
 import qualified Lucid.Base as L

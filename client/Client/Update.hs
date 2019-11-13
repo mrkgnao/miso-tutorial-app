@@ -1,10 +1,10 @@
-module Update where
+module Client.Update where
 
 import           Miso
 
-import           Action
-import           Effect
-import           Model
+import           Client.Effect
+import           Shared.Action
+import           Shared.Model
 
 updateModel :: Action -> Model -> Effect Action Model
 updateModel FetchPlayers m = m <# do

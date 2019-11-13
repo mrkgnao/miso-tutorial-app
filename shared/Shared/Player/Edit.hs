@@ -1,12 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Player.Edit where
+module Shared.Player.Edit where
 
 import           Miso
 import           Miso.String (ms)
 
-import           Action
-import           Model
-import           Routing
+import           Shared.Action
+import           Shared.Model
+import           Shared.Routing
 
 viewPlayer :: Player -> View Action
 viewPlayer p = div_ []

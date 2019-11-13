@@ -1,9 +1,9 @@
-module Action where
+module Shared.Action where
 
 import           Miso
 import           Network.URI
 
-import           Model
+import           Shared.Model
 
 data Action
     = FetchPlayers

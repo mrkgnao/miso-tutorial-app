@@ -1,4 +1,4 @@
-module Main where
+module ServerMain where
 
 import           Control.Concurrent.STM
 import           Network.Wai.Handler.Warp

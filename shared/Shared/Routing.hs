@@ -1,14 +1,14 @@
 {-# LANGUAGE DataKinds     #-}
 {-# LANGUAGE TypeOperators #-}
-module Routing where
+module Shared.Routing where
 
 import           Data.Proxy
 import           Miso
 import           Servant.API
-import           Servant.Utils.Links
+import           Servant.Links
 
-import           Action
-import           Model
+import           Shared.Action
+import           Shared.Model
 
 type Route =
          TopRoute
@@ -22,7 +22,7 @@ type ListRoute = "players" :> View Action
 type EditRoute = "players" :> Capture "ident" PlayerId :> View Action
 
 listLink :: URI
-listLink = safeLink (Proxy :: Proxy Route) (Proxy :: Proxy ListRoute)
+listLink = linkURI $ safeLink (Proxy :: Proxy Route) (Proxy :: Proxy ListRoute)
 
 editLink :: PlayerId -> URI
-editLink i = safeLink (Proxy :: Proxy Route) (Proxy :: Proxy EditRoute) i
+editLink i = linkURI $ safeLink (Proxy :: Proxy Route) (Proxy :: Proxy EditRoute) i
